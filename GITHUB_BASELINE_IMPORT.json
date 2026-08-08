@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "repository": "provoware/PROVOWARE_ARCHIV_CLEANUP_CENTER",
-  "branch": "baseline/i014-import",
+  "branch": "baseline/i014-verified-import",
   "baseline_release": "I014",
   "version": "0.14.0",
   "release_zip": "PROVOWARE_ARCHIV_CLEANUP_CENTER_I014.zip",
@@ -22,5 +22,5 @@
     "real_delete_enabled": false,
     "write_readiness": "BLOCKED_REAL_WRITE"
   },
-  "import_contract_sha256": "550f977c9385064830f28c5f315b50eb09667c02c21c7b0da44f7a7d2a886dd0"
+  "import_contract_sha256": "2befb56c2b61e303450979a02a3a9d21ff9e13600b3833dc3ff5133a40f92142"
 }
