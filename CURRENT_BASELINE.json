@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "product": "PROVOWARE Archiv & Cleanup Center",
+  "release": "I014",
+  "version": "0.14.0",
+  "parent_release": "I013",
+  "parent_zip": "Backup/PROVOWARE_ARCHIV_CLEANUP_CENTER_I013.zip",
+  "parent_source_hash": "1d2d7bb14689daf50fd5b0a31cb3fef65e06d7dcb6f75e97e74b05da62290460",
+  "gate_status": "PASS",
+  "production_action_enabled": false,
+  "real_quarantine_release": false,
+  "real_delete_enabled": false,
+  "stable_status": "VERIFIED",
+  "lineage_id": "provoware-archiv-cleanup-center-main",
+  "development_phase": "ITERATION_014",
+  "category": "DIAGNOSTIK_EVIDENCE",
+  "build_date": "2026-08-08",
+  "build_revision": 1
+}
