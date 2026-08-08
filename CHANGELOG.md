@@ -25,17 +25,27 @@
 - `GET /api/unified-diagnostic/file?kind=...`
 - `POST /api/unified-diagnostic/build`
 - GUI-Panel für Diagnosezustand, Generation, Verifikation, Fingerprint, HTML-Bericht und Evidence-ZIP
+- veraltete GUI-Kernversionsanzeige von 0.12 auf 0.14 korrigiert
 - Evidence Report um I014-Status erweitert
 
-### Sicherheit
+### Readiness / Sicherheit
 
-- `write_readiness_gate` berücksichtigt I014 Diagnostic Evidence Bundle
+- `write_readiness_gate` berücksichtigt nun das I014 Diagnostic Evidence Bundle
 - auch `DIAGNOSTIC_COMPLETE` bleibt `BLOCKED_REAL_WRITE`
+- verbleibender Blocker: separater Production Authorization Contract + explizite Nutzerfreigabe
 - `actual_moved_files = 0`
 - `production_action_enabled = false`
 - `real_quarantine_release = false`
 - `real_delete_enabled = false`
 
+### Wartbarkeit
+
+- obsoleten Testüberrest `tests/test_i013.py.tmp` entfernt
+- Downstream-Invalidierung gehärtet: neue Audit-/Acceptance-Zustände invalidieren alte Diagnostic Bundles
+- Backup-Basis auf den unmittelbar vorherigen validierten I013-Vollrelease verschoben
+- Startsequenz auf 23 Gates erweitert
+- I014 API-End-to-End-Smoke ergänzt
+- interne Selftests bis I014 erweitert
 ### Finale Qualitätsgates
 
 - Unit-/Integrations-Tests: 133/133 PASS
@@ -46,3 +56,5 @@
 - Shell-Syntax: PASS
 - I011–I014 API-Regression: PASS
 - I014 Hard-Lock Static Gate: PASS
+- Release-ZIP-Integrität: wird nach Packaging erneut verifiziert
+
