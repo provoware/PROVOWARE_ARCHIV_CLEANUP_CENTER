@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "repository": "provoware/PROVOWARE_ARCHIV_CLEANUP_CENTER",
+  "branch": "baseline/i014-verified-import",
+  "baseline_release": "I014",
+  "version": "0.14.0",
+  "release_zip": "PROVOWARE_ARCHIV_CLEANUP_CENTER_I014.zip",
+  "release_zip_sha256": "72393a4ed445a765a7542d7a28c42171dbae66ed927dd0207c31f05a2a159899",
+  "release_manifest_sha256": "ab8dd9a4ee99c04f3e8050b8fff1ea7cce44bfed3941236066c5eae58de7be1b",
+  "parent_release": "I013",
+  "parent_sha256": "1d2d7bb14689daf50fd5b0a31cb3fef65e06d7dcb6f75e97e74b05da62290460",
+  "development_gate": "PASS",
+  "production_release": "LOCKED",
+  "repository_import_scope": "RELEASE_IDENTITY_ANCHOR",
+  "full_source_tree_imported": false,
+  "release_zip_embedded_in_repository": false,
+  "reason": "GitHub connector exposes UTF-8/tree writes but no direct local binary-file upload; exact archive remains identified by SHA-256 and manifest.",
+  "safety": {
+    "actual_moved_files": 0,
+    "production_action_enabled": false,
+    "real_quarantine_release": false,
+    "real_delete_enabled": false,
+    "write_readiness": "BLOCKED_REAL_WRITE"
+  },
+  "import_contract_sha256": "2befb56c2b61e303450979a02a3a9d21ff9e13600b3833dc3ff5133a40f92142"
+}
