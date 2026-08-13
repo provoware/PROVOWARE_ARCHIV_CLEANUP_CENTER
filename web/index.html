@@ -12,7 +12,7 @@ aside{background:#081521;border-right:1px solid var(--line);padding:24px 18px;po
 .brand{font-weight:900;font-size:22px;letter-spacing:.03em}.brand small{display:block;color:var(--accent);font-size:12px;margin-top:3px}
 nav{display:grid;gap:8px;margin-top:30px}nav a{color:var(--muted);text-decoration:none;padding:11px 12px;border-radius:10px}nav a:hover,nav a:focus{background:var(--panel2);color:white;outline:2px solid transparent}
 .lock{margin-top:30px;padding:13px;border:1px solid #275844;background:#0b251f;border-radius:12px;color:#b9f7d8;font-size:13px}
-main{padding:26px 30px 60px;max-width:1500px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.eyebrow{color:var(--accent);font-weight:800;text-transform:uppercase;font-size:16px;letter-spacing:.13em}
+main{padding:26px 30px 60px;max-width:1500px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.eyebrow{color:var(--accent);font-weight:800;text-transform:uppercase;font-size:12px;letter-spacing:.13em}
 h1{font-size:clamp(30px,4vw,48px);line-height:1.05;margin:.25rem 0}.sub{color:var(--muted);max-width:80ch}.badge{border:1px solid var(--line);background:var(--panel);padding:8px 12px;border-radius:999px;color:var(--muted);white-space:nowrap}
 .notice{margin:20px 0;background:#2b2411;border:1px solid #735d20;border-radius:14px;padding:14px 16px;color:#ffe6a2}
 .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.kpi,.card{background:linear-gradient(180deg,#102236,#0b1927);border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 35px #0003}.kpi{padding:17px}.kpi strong{display:block;font-size:26px}.kpi span{color:var(--muted);font-size:13px}
@@ -20,8 +20,8 @@ h1{font-size:clamp(30px,4vw,48px);line-height:1.05;margin:.25rem 0}.sub{color:va
 input{background:#07131f;color:white;border:1px solid #38536c;border-radius:10px;padding:11px 12px;min-width:260px;flex:1}input:focus{outline:2px solid var(--accent2);outline-offset:1px}
 .btn{border:0;border-radius:10px;padding:11px 15px;font-weight:800}.primary{background:var(--accent);color:#05221c}.secondary{background:#203a51;color:white;border:1px solid #3d5b74}
 .progress{height:12px;background:#07131f;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin:14px 0}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .3s}
-.status{color:var(--muted);min-height:24px}.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.tablewrap{overflow:auto;max-height:420px}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;border-bottom:1px solid #243d52;padding:9px 8px;vertical-align:top}th{color:#b8cad7;position:sticky;top:0;background:#102236}.mono{font-family:ui-monospace,SFMono-Regular,monospace;word-break:break-all;font-size:16px;color:#cfe2ef}
-.ok{color:var(--ok)}.warn{color:var(--warn)}.danger{color:var(--danger)}details{margin-top:16px}summary{cursor:pointer;color:var(--accent2)}
+.status{color:var(--muted);min-height:24px}.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.tablewrap{overflow:auto;max-height:420px}table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;border-bottom:1px solid #243d52;padding:9px 8px;vertical-align:top}th{color:#b8cad7;position:sticky;top:0;background:#102236}.mono{font-family:ui-monospace,SFMono-Regular,monospace;word-break:break-all;font-size:12px;color:#cfe2ef}
+.ok{color:var(--ok)}.warn{color:var(--warn)}.danger{color:var(--danger)}details{margin-top:12px}summary{cursor:pointer;color:var(--accent2)}
 footer{color:#7691a6;margin-top:28px;font-size:13px}
 @media(max-width:1000px){.app{grid-template-columns:1fr}aside{height:auto;position:static;border-right:0;border-bottom:1px solid var(--line)}nav{display:flex;flex-wrap:wrap;margin-top:14px}.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}
 @media(max-width:620px){main{padding:18px 14px 40px}.grid{grid-template-columns:1fr}.top{display:block}.badge{display:inline-block;margin-top:10px}input{min-width:100%}}
@@ -34,29 +34,39 @@ footer{color:#7691a6;margin-top:28px;font-size:13px}
   <nav aria-label="Hauptnavigation">
     <a href="#overview">Übersicht</a>
     <a href="#scan">Ordneranalyse</a>
-    <a href="#recovery">Recovery</a>
+    <a href="#recovery">Dateien wiederfinden</a>
     <a href="#system">Systemstatus</a>
   </nav>
-  <div class="lock">🔒 <strong>Read-only aktiv</strong><br>Keine Datei wird verschoben, gelöscht oder überschrieben.</div>
+  <div class="lock">🔒 <strong>Sicherheitsmodus: nur lesen</strong><br>Das Programm schaut sich Dateien an, ändert sie aber nicht.</div>
 </aside>
 <main>
 <section id="overview">
-  <div class="top"><div><div class="eyebrow">Lokale grafische Recovery-Oberfläche</div><h1>Archiv & Cleanup Center</h1>
-  <p class="sub">Sichere Bestandsanalyse und Recovery-Vorbereitung für lokale Ordner und alte Datenträger. Die aktuelle Oberfläche arbeitet ausschließlich lesend.</p></div>
+  <div class="top"><div><div class="eyebrow">Lokales Werkzeug für Ordner und Datenträger</div><h1>Archiv & Cleanup Center</h1>
+  <p class="sub">Du kannst Ordner und alte Datenträger prüfen, ohne Dateien zu verändern. Das Programm liest nur und zeigt dir verständlich, was gefunden wurde.</p></div>
   <div class="badge" id="version">Version wird geladen…</div></div>
-  <div class="notice"><strong>Übertragungsstatus:</strong> Der historische I014-Quellbaum ist auf GitHub unvollständig. Diese GUI ist der reparierte, laufende I015-Recovery-Stand; sie behauptet keine bytegenaue Wiederherstellung der fehlenden I014-Dateien.</div>
+  <div class="notice"><strong>Wichtig:</strong> Eine ältere Programmversion ist nicht vollständig im Projektarchiv vorhanden. Diese reparierte Version funktioniert eigenständig und gibt fehlende alte Dateien nicht als wiederhergestellt aus.</div>
   <div class="grid">
-    <div class="kpi"><strong id="kFiles">0</strong><span>Dateien im letzten Scan</span></div>
+    <div class="kpi"><strong id="kFiles">0</strong><span>Dateien zuletzt geprüft</span></div>
     <div class="kpi"><strong id="kSize">0 B</strong><span>Gelesene Dateigröße</span></div>
     <div class="kpi"><strong id="kCats">0</strong><span>Kategorien</span></div>
-    <div class="kpi"><strong class="ok">GESPERRT</strong><span>Reale Schreibaktionen</span></div>
+    <div class="kpi"><strong class="ok">SICHER</strong><span>Ändern und Löschen gesperrt</span></div>
   </div>
 </section>
 
+<section class="card" id="so-gehts">
+  <div class="eyebrow">In drei Schritten</div><h2>So benutzt du das Programm</h2>
+  <ol>
+    <li>Gib einen Ordner oder Datenträger an.</li>
+    <li>Starte die Prüfung und warte, bis sie fertig ist.</li>
+    <li>Sieh dir die gefundenen Dateitypen und großen Dateien an.</li>
+  </ol>
+  <p class="sub"><strong>Wichtig:</strong> In diesem Stand werden keine Dateien gelöscht oder verschoben.</p>
+</section>
+
 <section class="card" id="scan">
-  <div class="eyebrow">Read-only Analyse</div><h2>Ordner oder Datenträger analysieren</h2>
-  <p class="sub">Geeignet sind z. B. <span class="mono">/media/&lt;nutzer&gt;/ALTE_PLATTE</span>, <span class="mono">/mnt/archiv</span> oder ein Datenordner. Kritische Systemwurzeln werden blockiert.</p>
-  <div class="row"><input id="scanPath" aria-label="Scanpfad" placeholder="/media/deinname/ALTE_PLATTE"><button class="btn primary" id="scanBtn">Analyse starten</button></div>
+  <div class="eyebrow">Sicher prüfen – ohne Änderungen</div><h2>Ordner oder Datenträger prüfen</h2>
+  <p class="sub">Du kannst zum Beispiel <span class="mono">/media/&lt;nutzer&gt;/ALTE_PLATTE</span>, <span class="mono">/mnt/archiv</span> oder ein Datenordner. Wichtige Systemordner werden aus Sicherheitsgründen nicht geprüft.</p>
+  <div class="row"><input id="scanPath" aria-label="Ordner oder Datenträger" placeholder="/media/deinname/ALTE_PLATTE"><button class="btn primary" id="scanBtn">Prüfung starten</button></div>
   <div class="progress" aria-hidden="true"><div class="bar" id="scanBar"></div></div>
   <div class="status" id="scanStatus" role="status" aria-live="polite">Bereit.</div>
 </section>
@@ -73,66 +83,84 @@ footer{color:#7691a6;margin-top:28px;font-size:13px}
 </div>
 
 <section class="card" id="recovery">
-  <div class="eyebrow">I015 Recovery</div><h2>Candidate Index erzeugen</h2>
-  <p class="sub">Der Collector sucht nur in ausdrücklich markierten Recovery-Wurzeln nach ZIP-Kandidaten. Er qualifiziert keine Release-Identität und besitzt keine Intake-/Release-Rechte.</p>
-  <div class="row"><input id="recoveryRoot" aria-label="Recovery-Wurzel" placeholder="/pfad/zum/markierten/recovery-ordner"><input id="evidenceRoot" aria-label="Evidence-Ordner" placeholder="/pfad/zum/markierten/evidence-ordner"><button class="btn secondary" id="indexBtn">Index erzeugen</button></div>
+  <div class="eyebrow">Dateien wiederfinden</div><h2>Fundliste erstellen</h2>
+  <p class="sub">Hier erstellt das Programm eine Liste möglicher ZIP-Dateien in einem ausdrücklich freigegebenen Suchordner. Es kopiert, verschiebt oder löscht dabei nichts.</p>
+  <div class="row"><input id="recoveryRoot" aria-label="Suchordner" placeholder="/pfad/zum/freigegebenen/suchordner"><input id="evidenceRoot" aria-label="Nachweisordner" placeholder="/pfad/zum/nachweisordner"><button class="btn secondary" id="indexBtn">Fundliste erstellen</button></div>
   <div class="status" id="recoveryStatus" role="status" aria-live="polite">Noch kein Lauf.</div>
-  <details><summary>Benötigte Marker anzeigen</summary>
-    <p class="mono">Recovery: .provoware_recovery_search_root → PROVOWARE_RECOVERY_SEARCH_ROOT_V1</p>
-    <p class="mono">Evidence: .provoware_evidence_root → PROVOWARE_EVIDENCE_ROOT_V1</p>
+  <details><summary>Technische Angaben anzeigen</summary>
+    <p class="mono">Suchordner: .provoware_recovery_search_root → PROVOWARE_RECOVERY_SEARCH_ROOT_V1</p>
+    <p class="mono">Nachweisordner: .provoware_evidence_root → PROVOWARE_EVIDENCE_ROOT_V1</p>
   </details>
 </section>
 
 <section class="card" id="system">
-  <div class="eyebrow">Fail-closed Status</div><h2>System- und Release-Gates</h2>
+  <div class="eyebrow">Sicherheitsstatus</div><h2>Was das Programm darf</h2>
   <div id="gateStatus" class="status">Wird geladen…</div>
 </section>
 
-<footer>PROVOWARE · offline-first · lokal · read-only · Firefox/Chrome · keine Cloud-Abhängigkeit</footer>
+<footer>PROVOWARE · funktioniert lokal · nur lesen · Firefox/Chrome · keine Cloud nötig</footer>
 </main>
 </div>
 <script>
 const $=s=>document.querySelector(s);
 async function api(url,opts={}){const r=await fetch(url,opts);const j=await r.json();if(!r.ok)throw new Error(j.error||r.statusText);return j}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function freundlicherFehler(text){
+ const t=String(text||'');
+ const regeln=[
+  ['SCAN_PATH_EMPTY','Bitte gib einen Ordner an.'],
+  ['SCAN_ROOT_NOT_FOUND','Der angegebene Ordner wurde nicht gefunden.'],
+  ['SCAN_ROOT_NOT_DIRECTORY','Der angegebene Pfad ist kein Ordner.'],
+  ['SCAN_ROOT_SYMLINK','Dieser Verweis kann aus Sicherheitsgründen nicht direkt geprüft werden.'],
+  ['SCAN_ROOT_BLOCKED','Dieser Systemordner ist aus Sicherheitsgründen gesperrt.'],
+  ['RECOVERY_ROOTS_EMPTY','Bitte gib mindestens einen Suchordner an.'],
+  ['SCAN_ROOT_MARKER_INVALID','Der Suchordner ist noch nicht für die sichere Suche freigegeben.'],
+  ['EVIDENCE_ROOT_MARKER_INVALID','Der Nachweisordner ist noch nicht richtig vorbereitet.'],
+  ['EVIDENCE_ROOT_INSIDE_SCAN_ROOT','Der Nachweisordner muss außerhalb des Suchordners liegen.'],
+  ['SCAN_ERROR','Bei der Prüfung ist ein Fehler aufgetreten.']
+ ];
+ for(const [code,msg] of regeln){if(t.includes(code))return msg}
+ return 'Die Aktion konnte nicht ausgeführt werden. Öffne bei Bedarf die technischen Angaben oder den Diagnosebericht.';
+}
 async function loadStatus(){
  try{const s=await api('/api/status');$('#version').textContent=s.version;
- const l=s.locks;$('#gateStatus').innerHTML=`<div class="ok"><strong>Alle Schreib-/Release-Gates geschlossen.</strong></div>
- <div class="mono">production_write_enabled=${l.production_write_enabled}<br>real_user_data_touched=${l.real_user_data_touched}<br>rc1_release_allowed=${l.rc1_release_allowed}<br>stable_release_allowed=${l.stable_release_allowed}<br>builder_v10_allowed=${l.builder_v10_allowed}</div>`;
- }catch(e){$('#gateStatus').textContent='Statusfehler: '+e.message}
+ const l=s.locks;$('#gateStatus').innerHTML=`<div class="ok"><strong>Ändern, Löschen und Freigeben sind gesperrt.</strong></div>
+ <p>Das Programm darf deine Dateien in diesem Stand nur lesen.</p>
+ <details><summary>Technische Angaben anzeigen</summary><div class="mono">production_write_enabled=${l.production_write_enabled}<br>real_user_data_touched=${l.real_user_data_touched}<br>rc1_release_allowed=${l.rc1_release_allowed}<br>stable_release_allowed=${l.stable_release_allowed}<br>builder_v10_allowed=${l.builder_v10_allowed}</div></details>`;
+ }catch(e){$('#gateStatus').textContent='Der Sicherheitsstatus konnte nicht geladen werden: '+freundlicherFehler(e.message)}
 }
 let timer=null;
 $('#scanBtn').addEventListener('click',async()=>{
- const path=$('#scanPath').value.trim(); if(!path){$('#scanStatus').textContent='Bitte einen Pfad angeben.';return}
- $('#scanBtn').disabled=true;$('#scanBar').style.width='8%';$('#scanStatus').textContent='Starte read-only Analyse…';
+ const path=$('#scanPath').value.trim(); if(!path){$('#scanStatus').textContent='Bitte gib einen Ordner oder Datenträger an.';return}
+ $('#scanBtn').disabled=true;$('#scanBar').style.width='8%';$('#scanStatus').textContent='Die sichere Prüfung startet…';
  try{
   const s=await api('/api/scan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({path,max_files:50000})});
   poll(s.job_id);
- }catch(e){$('#scanStatus').textContent='BLOCKIERT: '+e.message;$('#scanBtn').disabled=false;$('#scanBar').style.width='0'}
+ }catch(e){$('#scanStatus').textContent='Das klappt noch nicht: '+freundlicherFehler(e.message);$('#scanBtn').disabled=false;$('#scanBar').style.width='0'}
 });
 async function poll(id){
  clearTimeout(timer);
  try{
   const j=await api('/api/scan/status?id='+encodeURIComponent(id));
   if(j.state==='DONE'){renderScan(j.result);$('#scanBtn').disabled=false;$('#scanBar').style.width='100%';return}
-  if(j.state==='ERROR'){throw new Error(j.error||'Scanfehler')}
-  const n=j.files||0;$('#scanStatus').textContent=`Analyse läuft · ${n} Dateien · ${j.current||''}`;
+  if(j.state==='ERROR'){throw new Error(j.error||'SCAN_ERROR')}
+  const n=j.files||0;$('#scanStatus').textContent=`Prüfung läuft · ${n} Dateien · ${j.current||''}`;
   $('#scanBar').style.width=Math.min(90,10+Math.log10(n+1)*20)+'%';timer=setTimeout(()=>poll(id),450);
- }catch(e){$('#scanStatus').textContent='BLOCKIERT: '+e.message;$('#scanBtn').disabled=false;$('#scanBar').style.width='0'}
+ }catch(e){$('#scanStatus').textContent='Das klappt noch nicht: '+freundlicherFehler(e.message);$('#scanBtn').disabled=false;$('#scanBar').style.width='0'}
 }
 function renderScan(r){
  $('#kFiles').textContent=r.files.toLocaleString('de-DE');$('#kSize').textContent=r.bytes_human;$('#kCats').textContent=r.categories.length;
- $('#scanStatus').textContent=`Fertig: ${r.files.toLocaleString('de-DE')} Dateien · ${r.bytes_human} · ${r.elapsed}s · nur gelesen`;
+ $('#scanStatus').textContent=`Fertig: ${r.files.toLocaleString('de-DE')} Dateien · ${r.bytes_human} · ${r.elapsed}s · keine Dateien verändert`;
  $('#catBody').innerHTML=r.categories.map(x=>`<tr><td>${esc(x.name)}</td><td>${x.files.toLocaleString('de-DE')}</td><td>${esc(x.bytes_human)}</td></tr>`).join('')||'<tr><td colspan="3">Keine Dateien.</td></tr>';
  $('#largeBody').innerHTML=r.largest.map(x=>`<tr><td class="mono">${esc(x.path)}</td><td>${esc(x.bytes_human)}</td></tr>`).join('')||'<tr><td colspan="2">Keine Dateien.</td></tr>';
 }
 $('#indexBtn').addEventListener('click',async()=>{
  const root=$('#recoveryRoot').value.trim(),ev=$('#evidenceRoot').value.trim();
- if(!root||!ev){$('#recoveryStatus').textContent='Recovery- und Evidence-Pfad angeben.';return}
- $('#indexBtn').disabled=true;$('#recoveryStatus').textContent='Index wird read-only erzeugt…';
+ if(!root||!ev){$('#recoveryStatus').textContent='Bitte gib den Suchordner und den Nachweisordner an.';return}
+ $('#indexBtn').disabled=true;$('#recoveryStatus').textContent='Die Fundliste wird erstellt…';
  try{const j=await api('/api/recovery/index',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({roots:[root],evidence_root:ev})});
- $('#recoveryStatus').innerHTML=`<span class="ok">CANDIDATE_INDEX_READY</span> · ${j.candidate_count} Kandidaten · <span class="mono">${esc(j.index)}</span>`;
- }catch(e){$('#recoveryStatus').textContent='BLOCKIERT: '+e.message}finally{$('#indexBtn').disabled=false}
+ $('#recoveryStatus').innerHTML=`<span class="ok">Fundliste fertig</span> · ${j.candidate_count} mögliche ZIP-Dateien · <span class="mono">${esc(j.index)}</span>`;
+ }catch(e){$('#recoveryStatus').textContent='Das klappt noch nicht: '+freundlicherFehler(e.message)}finally{$('#indexBtn').disabled=false}
 });
 loadStatus();
 </script>
