@@ -10,7 +10,10 @@ spec.loader.exec_module(collector)
 
 class CandidateIndexContractTests(unittest.TestCase):
     def test_index_type(self):
-        self.assertEqual(collector.INDEX_TYPE if hasattr(collector, "INDEX_TYPE") else "I015_RECOVERY_CANDIDATE_INDEX", "I015_RECOVERY_CANDIDATE_INDEX")
+        self.assertEqual(
+            collector.INDEX_TYPE if hasattr(collector, "INDEX_TYPE") else "I015_RECOVERY_CANDIDATE_INDEX",
+            "I015_RECOVERY_CANDIDATE_INDEX",
+        )
 
     def test_missing_root_marker_blocks(self):
         with tempfile.TemporaryDirectory() as d:
