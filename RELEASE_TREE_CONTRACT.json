@@ -1,0 +1,74 @@
+{
+  "algorithm": "git-write-tree-sha1",
+  "contract_type": "PROVOWARE_REPOSITORY_RELEASE_TREE",
+  "control_plane_rationale": "Documentation, reports, backups and generated evidence are verified separately and do not alter executable release identity.",
+  "excluded_control_plane": [
+    "PROJEKTSTATUS.json",
+    "REPOSITORY_MANIFEST.json",
+    "PAKETMANIFEST.json",
+    "Backup/",
+    "GITHUB_*",
+    "QUALITY_REPORT*",
+    "ZEICHENMETRIK*",
+    "*.sha256",
+    "*_INTEGRITY_PROOF.txt"
+  ],
+  "executable_paths": [
+    "START_PROVOWARE.sh",
+    "app.py",
+    "start.sh",
+    "tools/build_release_candidate.py",
+    "tools/repository_release_gate.py",
+    "tools/runtime_instance_receipt.py",
+    "tools/runtime_launcher.py"
+  ],
+  "fail_closed": true,
+  "include_paths": [
+    ".github/workflows/byte-exact-gate.yml",
+    "RELEASE_TREE_CONTRACT.json",
+    "START_PROVOWARE.sh",
+    "VERSION_GUI",
+    "app.py",
+    "recovery/phase30/post_promotion_audit.py",
+    "recovery/phase30/test_phase30_contracts.py",
+    "recovery/phase30/test_post_promotion_audit.py",
+    "recovery/phase31/candidate_index_collector.py",
+    "recovery/phase31/real_artifact_availability.py",
+    "recovery/phase31/test_candidate_index_collector.py",
+    "recovery/phase31/test_candidate_index_contracts.py",
+    "recovery/phase31/test_real_artifact_availability.py",
+    "start.sh",
+    "tests/test_gui_layperson_texts.py",
+    "tests/test_gui_recovery.py",
+    "tests/test_repository_release_gate.py",
+    "tests/test_runtime_instance_receipt.py",
+    "tests/test_runtime_launcher.py",
+    "tools/build_release_candidate.py",
+    "tools/repository_release_gate.py",
+    "tools/runtime_instance_receipt.py",
+    "tools/runtime_launcher.py",
+    "web/index.html"
+  ],
+  "release_promotion_requires_gate_pass": true,
+  "release_tree_scope": "EXECUTABLE_TESTED_RELEASE_CORE",
+  "required_safety_locks": {
+    "builder_v10_allowed": false,
+    "production_write_enabled": false,
+    "rc1_release_allowed": false,
+    "real_user_data_touched": false,
+    "stable_release_allowed": false
+  },
+  "runtime_receipt": {
+    "fallback_tmp_per_uid": true,
+    "permissions": "0600 receipt / 0700 runtime dir",
+    "project_bound": true,
+    "stored_outside_project_tree": true,
+    "xdg_runtime_dir_preferred": true
+  },
+  "schema_version": 1,
+  "transient_excludes": [
+    "**/__pycache__/**",
+    "**/*.pyc",
+    "**/*.pyo"
+  ]
+}
