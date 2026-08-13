@@ -30,11 +30,17 @@ jobs:
       - name: GUI selfcheck
         run: python3 -S app.py --selfcheck
 
-      - name: Existing 48 acceptance tests
+      - name: GUI and Recovery acceptance tests
         run: |
           python3 -S -m unittest discover -s tests -p 'test_gui_*.py' -q
           python3 -S -m unittest discover -s recovery/phase30 -p 'test_*.py' -q
           python3 -S -m unittest discover -s recovery/phase31 -p 'test_*.py' -q
+
+      - name: Runtime Receipt tests
+        run: python3 -S tests/test_runtime_instance_receipt.py -q
+
+      - name: Runtime Launcher tests
+        run: python3 -S tests/test_runtime_launcher.py -q
 
       - name: Repository gate tests
         run: python3 -S tests/test_repository_release_gate.py -q
