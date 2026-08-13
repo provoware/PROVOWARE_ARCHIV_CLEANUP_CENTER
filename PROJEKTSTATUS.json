@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "kanonischer_projektname": "PROVOWARE Archiv & Cleanup Center",
+  "aliasnamen": ["Cleaner Tool", "PROVOWARE Archiv & Cleanup Center / Cleaner Tool"],
+  "version": "0.15.0-rc1-recovery-phase30-post-promotion-audit1",
+  "repository": "provoware/PROVOWARE_ARCHIV_CLEANUP_CENTER",
+  "hauptdatei": "recovery/phase30/post_promotion_audit.py",
+  "status": "PHASE30_VALIDATED_INFRASTRUCTURE_REAL_RC1_BLOCKED",
+  "letztes_validiertes_produktrelease": "I014 / 0.14.0",
+  "github_baseline_commit": "9b6da6741b910cac827b6f9f55515dd68442b2f9",
+  "i014_originalbytes_im_repository": false,
+  "builder_v9_originalbytes_im_repository": false,
+  "production_write_enabled": false,
+  "real_user_data_touched": false,
+  "rc1_release_allowed": false,
+  "stable_release_allowed": false,
+  "builder_v10_allowed": false
+}
