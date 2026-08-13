@@ -1,0 +1,58 @@
+name: Byte-Exact Repository Release Gate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - 'agent/i015-*'
+
+permissions:
+  contents: read
+
+jobs:
+  byte-exact:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Shell syntax
+        run: |
+          bash -n START_PROVOWARE.sh
+          bash -n start.sh
+
+      - name: GUI selfcheck
+        run: python3 -S app.py --selfcheck
+
+      - name: GUI and Recovery acceptance tests
+        run: |
+          python3 -S -m unittest discover -s tests -p 'test_gui_*.py' -q
+          python3 -S -m unittest discover -s recovery/phase30 -p 'test_*.py' -q
+          python3 -S -m unittest discover -s recovery/phase31 -p 'test_*.py' -q
+
+      - name: Runtime Receipt tests
+        run: python3 -S tests/test_runtime_instance_receipt.py -q
+
+      - name: Runtime Launcher tests
+        run: python3 -S tests/test_runtime_launcher.py -q
+
+      - name: Repository gate tests
+        run: python3 -S tests/test_repository_release_gate.py -q
+
+      - name: Manifest and repository tree gate
+        run: python3 -S tools/repository_release_gate.py --root . --json
+
+      - name: Reconstruct deterministic release payload
+        run: python3 -S tools/build_release_candidate.py --root . --output /tmp/provoware-release.zip
+
+      - name: Repository to release equivalence
+        run: python3 -S tools/repository_release_gate.py --root . --release-zip /tmp/provoware-release.zip --json
+
+      - name: Working tree unchanged
+        run: git diff --exit-code

@@ -14,18 +14,25 @@ import stat
 import threading
 import time
 import urllib.parse
+import urllib.request
+import urllib.error
 import webbrowser
 from collections import Counter
+from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
 import importlib.util
 import uuid
+import sys
 
 ROOT = Path(__file__).resolve().parent
+if str(ROOT / "tools") not in sys.path:
+    sys.path.insert(0, str(ROOT / "tools"))
+import runtime_instance_receipt as runtime_receipt
 WEB = ROOT / "web"
 STATUS_FILE = ROOT / "PROJEKTSTATUS.json"
-VERSION = "0.15.0-rc1-recovery-phase31a-gui1"
+VERSION = "0.15.0-rc1-recovery-phase31a-runtime-receipt1"
 PRODUCT = "PROVOWARE Archiv & Cleanup Center"
 CANONICAL = {
     "I014": "72393a4ed445a765a7542d7a28c42171dbae66ed927dd0207c31f05a2a159899",
@@ -63,10 +70,11 @@ def _status() -> dict[str, Any]:
         data = {}
     return {
         "product": PRODUCT,
-        "version": VERSION,
+        "version": data.get("version", VERSION),
         "mode": "GRAPHICAL_READ_ONLY_RECOVERY",
         "status": data.get("status", "GUI_RECOVERY_READY"),
         "repository": data.get("repository", "provoware/PROVOWARE_ARCHIV_CLEANUP_CENTER"),
+        "project_id": runtime_receipt.project_id(ROOT),
         "historical_i014_original_bytes_available": False,
         "historical_transfer_complete": False,
         "canonical_hashes": CANONICAL,
@@ -374,7 +382,100 @@ def selfcheck() -> dict[str, Any]:
     status = _status()
     if any(status["locks"].values()):
         errors.append("SAFETY_LOCK_DRIFT")
-    return {"status": "PASS" if not errors else "FAIL", "errors": errors, "version": VERSION}
+    return {"status": "PASS" if not errors else "FAIL", "errors": errors, "version": status["version"]}
+
+class LocalThreadingHTTPServer(ThreadingHTTPServer):
+    """Local-only server with safe rapid restart behaviour."""
+    allow_reuse_address = True
+    daemon_threads = True
+
+
+def _probe_existing_provoware(port: int, timeout: float = 0.35) -> dict[str, Any] | None:
+    """Return status only when the occupied port is a compatible PROVOWARE instance."""
+    if not (1 <= int(port) <= 65535):
+        return None
+    url = f"http://127.0.0.1:{int(port)}/api/status"
+    try:
+        with urllib.request.urlopen(url, timeout=timeout) as resp:
+            if resp.status != 200:
+                return None
+            obj = json.loads(resp.read(256 * 1024).decode("utf-8"))
+    except Exception:
+        return None
+    if not isinstance(obj, dict):
+        return None
+    if obj.get("product") != PRODUCT or obj.get("mode") != "GRAPHICAL_READ_ONLY_RECOVERY":
+        return None
+    if obj.get("version") != _status()["version"]:
+        return None
+    return obj
+
+
+def _probe_receipt_instance() -> tuple[str, dict[str, Any]] | None:
+    try:
+        receipt = runtime_receipt.load_receipt(ROOT)
+    except runtime_receipt.RuntimeReceiptError:
+        return None
+    if not receipt:
+        return None
+    ok, _reason = runtime_receipt.validate_receipt(ROOT, _status()["version"], receipt)
+    if not ok:
+        return None
+    port = int(receipt["port"])
+    status = _probe_existing_provoware(port)
+    if status is None:
+        return None
+    if status.get("project_id") != receipt.get("project_id"):
+        return None
+    return receipt["url"], receipt
+
+def acquire_local_server(preferred_port: int = 8765, fallback_tries: int = 32):
+    """Bind localhost safely.
+
+    - same current PROVOWARE already running -> reuse existing instance
+    - foreign/older process on preferred port -> try following localhost ports
+    - finally ask OS for an ephemeral free port
+    """
+    preferred_port = int(preferred_port)
+    if preferred_port < 0 or preferred_port > 65535:
+        raise ValueError("PORT_OUT_OF_RANGE")
+
+    existing_by_receipt = _probe_receipt_instance()
+    if existing_by_receipt is not None:
+        url, _receipt = existing_by_receipt
+        return None, url, "REUSE_RECEIPT"
+
+    if preferred_port == 0:
+        server = LocalThreadingHTTPServer(("127.0.0.1", 0), Handler)
+        port = server.server_address[1]
+        return server, f"http://127.0.0.1:{port}/", "NEW_EPHEMERAL"
+
+    candidates = [preferred_port]
+    upper = min(65535, preferred_port + max(0, int(fallback_tries)))
+    candidates.extend(range(preferred_port + 1, upper + 1))
+
+    first_busy = False
+    for port in candidates:
+        try:
+            server = LocalThreadingHTTPServer(("127.0.0.1", port), Handler)
+            state = "NEW_PREFERRED" if port == preferred_port else "NEW_FALLBACK"
+            return server, f"http://127.0.0.1:{port}/", state
+        except OSError as exc:
+            if exc.errno not in (98, 48, 10048):  # Linux, macOS, Windows EADDRINUSE
+                raise
+            if port == preferred_port:
+                first_busy = True
+                existing = _probe_existing_provoware(port)
+                if existing is not None:
+                    return None, f"http://127.0.0.1:{port}/", "REUSE_EXISTING"
+            continue
+
+    # Last-resort local ephemeral port. No fixed port is killed or stolen.
+    server = LocalThreadingHTTPServer(("127.0.0.1", 0), Handler)
+    port = server.server_address[1]
+    state = "NEW_EPHEMERAL_AFTER_CONFLICT" if first_busy else "NEW_EPHEMERAL"
+    return server, f"http://127.0.0.1:{port}/", state
+
 
 def main() -> int:
     ap = argparse.ArgumentParser()
@@ -393,19 +494,44 @@ def main() -> int:
         print("BLOCKIERT: Der GUI-Server darf nur lokal gebunden werden.")
         return 12
 
-    server = ThreadingHTTPServer(("127.0.0.1", args.port), Handler)
-    port = server.server_address[1]
-    url = f"http://127.0.0.1:{port}/"
+    try:
+        server, url, bind_state = acquire_local_server(args.port)
+    except (OSError, ValueError) as exc:
+        print(f"BLOCKIERT: Lokaler GUI-Port konnte nicht bereitgestellt werden: {exc}")
+        return 12
+
+    if bind_state in ("REUSE_EXISTING", "REUSE_RECEIPT"):
+        print(f"PROVOWARE GUI bereits aktiv: {url}", flush=True)
+        print("Hinweis: Keine zweite Serverinstanz gestartet.", flush=True)
+        if bind_state == "REUSE_RECEIPT":
+            print("Single-Instance Runtime Receipt: PASS", flush=True)
+        if not args.no_browser:
+            threading.Timer(0.1, lambda: webbrowser.open(url)).start()
+        return 0
+
+    actual_port = int(urllib.parse.urlparse(url).port or 0)
+    if args.port and actual_port != args.port:
+        print(
+            f"Hinweis: Port {args.port} ist belegt; "
+            f"PROVOWARE verwendet automatisch den freien Port {actual_port}.",
+            flush=True,
+        )
     print(f"PROVOWARE GUI: {url}", flush=True)
     print("Modus: READ-ONLY / reale Schreibaktionen gesperrt", flush=True)
+    receipt = runtime_receipt.build_receipt(ROOT, _status()["version"], os.getpid(), actual_port, url)
+    receipt_file = runtime_receipt.write_receipt(ROOT, receipt)
+    print(f"Runtime Receipt: {receipt_file}", flush=True)
     if not args.no_browser:
         threading.Timer(0.5, lambda: webbrowser.open(url)).start()
     try:
+        assert server is not None
         server.serve_forever()
     except KeyboardInterrupt:
         pass
     finally:
-        server.server_close()
+        runtime_receipt.remove_receipt_if_owner(ROOT, os.getpid(), actual_port)
+        if server is not None:
+            server.server_close()
     return 0
 
 if __name__ == "__main__":
