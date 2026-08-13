@@ -83,15 +83,15 @@ def main():
         return 0 if result["status"]=="PASS" else 12
     server,url,state=acquire(a.port)
     if state in ("REUSE_RECEIPT","REUSE_EXISTING"):
-        print(f"PROVOWARE GUI bereits aktiv: {url}",flush=True)
-        if state=="REUSE_RECEIPT": print("Single-Instance Runtime Receipt: PASS",flush=True)
+        print(f"Das Programm läuft bereits: {url}",flush=True)
+        if state=="REUSE_RECEIPT": print("Passende laufende Instanz erkannt.",flush=True)
         if not a.no_browser: threading.Timer(.1,lambda:webbrowser.open(url)).start()
         return 0
     port=int(urllib.parse.urlparse(url).port or 0)
-    if a.port and port!=a.port: print(f"Hinweis: Port {a.port} belegt; freier Port {port}.",flush=True)
+    if a.port and port!=a.port: print(f"Hinweis: Der Standard-Port {a.port} ist belegt. Das Programm verwendet automatisch Port {port}.",flush=True)
     obj=receipt.build_receipt(ROOT,project_status()["version"],os.getpid(),port,url)
     path=receipt.write_receipt(ROOT,obj)
-    print(f"PROVOWARE GUI: {url}",flush=True);print(f"Runtime Receipt: {path}",flush=True)
+    print(f"Programmoberfläche: {url}",flush=True);print(f"Startinformation gespeichert: {path}",flush=True)
     if not a.no_browser: threading.Timer(.5,lambda:webbrowser.open(url)).start()
     try:
         assert server is not None
