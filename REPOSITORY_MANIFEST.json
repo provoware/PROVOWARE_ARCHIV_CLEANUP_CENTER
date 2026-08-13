@@ -1,30 +1,126 @@
 {
   "algorithm": "sha256+git-mode",
   "files": {
-    ".github/workflows/byte-exact-gate.yml": {"mode": "100644", "sha256": "af2ca89fe293a1457bec42d5d898ccacf10272d817b64b507d275f89b05e93e7", "size": 1467},
-    "RELEASE_TREE_CONTRACT.json": {"mode": "100644", "sha256": "f8f9974c61f8fd6c33fe9b3225d4ea6d6c73bc28bd5c82cd96a1baf6c38cbe85", "size": 2398},
-    "START_PROVOWARE.sh": {"mode": "100755", "sha256": "9a7672c78a36a1ae1b9f6c85317f5ce89516e743073fae7b36d4719773260982", "size": 327},
-    "VERSION_GUI": {"mode": "100644", "sha256": "4e1c64ac218dbfacedcfce52c74dd8ac1a7b7b576b14e281f602a08f49bb69bf", "size": 40},
-    "app.py": {"mode": "100755", "sha256": "3fa6dc585b2505bca68064ec562a63071609aca60dbfec77bf37df3758f2fb7a", "size": 20050},
-    "recovery/phase30/post_promotion_audit.py": {"mode": "100644", "sha256": "827f37bdad0173266e390bbc00844c8def34518f2a4b5cab6cc657b5b06fbeec", "size": 11739},
-    "recovery/phase30/test_phase30_contracts.py": {"mode": "100644", "sha256": "272847790f09c5e8a8e52cb14ef241098c074f02772a7e5d37a6d87f80c9c0bc", "size": 2161},
-    "recovery/phase30/test_post_promotion_audit.py": {"mode": "100644", "sha256": "90acfd99140b7924983ce60035cde932d448836ca8b1072077796e8c634c3532", "size": 11507},
-    "recovery/phase31/candidate_index_collector.py": {"mode": "100644", "sha256": "ceda0267b51579058d1bd9625a9b68771e8c5943e165d7e458962f6d6f73c205", "size": 3875},
-    "recovery/phase31/real_artifact_availability.py": {"mode": "100644", "sha256": "c8abbaa651e429cc0dbbaab67dfe017887c6c21101f3f3c5d0d4d10ce91cca54", "size": 6138},
-    "recovery/phase31/test_candidate_index_collector.py": {"mode": "100644", "sha256": "9dce883f5caae367fc78731173d8b95d2720083fcb39dcf8e2047bdcdeddb8a9", "size": 1363},
-    "recovery/phase31/test_candidate_index_contracts.py": {"mode": "100644", "sha256": "ca67a6a78ffeaf8aea50cf48880b38cce254f1ffeb8a8e4028a9f35280a6000c", "size": 1287},
-    "recovery/phase31/test_real_artifact_availability.py": {"mode": "100644", "sha256": "aa657d2b056336510dd574b4bc2e37ef0fbfa1d3b5c520eecc70be1552e82b02", "size": 3293},
-    "start.sh": {"mode": "100755", "sha256": "64c161848b1c02fcbbaf69cb45d4124225277fe1c0cb6a470d9795bcdf0cf4b0", "size": 699},
-    "tests/test_gui_layperson_texts.py": {"mode": "100644", "sha256": "2834a77080a50f5f40df835419a52360d8f267eeb53dbe15ae7afbef09047ee9", "size": 2025},
-    "tests/test_gui_recovery.py": {"mode": "100644", "sha256": "15ddd4a5568aaa860274b9f63d89cb88f582e5550a65033f409a0b68d2292654", "size": 5058},
-    "tests/test_repository_release_gate.py": {"mode": "100644", "sha256": "0ac9238b03a702c040912dcd447da4699bb8fd4535ee549888178b1d17f43c8e", "size": 6842},
-    "tests/test_runtime_instance_receipt.py": {"mode": "100644", "sha256": "1e87304f9b3913bf9cd57af88fe55c0377cff415f95ff45eaf3e1690384ec036", "size": 2763},
-    "tests/test_runtime_launcher.py": {"mode": "100644", "sha256": "a50e7f40545dd48b4a4d21cb3757a08eec3d749731862a328ee6fec962679f9f", "size": 1534},
-    "tools/build_release_candidate.py": {"mode": "100755", "sha256": "2d72e9a7812f9af51b96f295c6084609264b8fa769137afb46265d9106da3473", "size": 1543},
-    "tools/repository_release_gate.py": {"mode": "100755", "sha256": "c21c14cdf6f88f838041b6cb4b7560debcd4afc380b1fd77e990f99963836781", "size": 9393},
-    "tools/runtime_instance_receipt.py": {"mode": "100755", "sha256": "bf3d493b48b6b4d8d2e6d15444eb61211d70518505965d44e4a32aeb8c6a58f5", "size": 6132},
-    "tools/runtime_launcher.py": {"mode": "100755", "sha256": "05b1817f910e059aa066ee5a8858ff43622add42aac23534eb9397a122cfca98", "size": 4559},
-    "web/index.html": {"mode": "100644", "sha256": "f9e13862f0b2dec7b595336fa06480533994cdf6cdddfddb08ee60bd52ce968c", "size": 13611}
+    ".github/workflows/byte-exact-gate.yml": {
+      "mode": "100644",
+      "sha256": "af6521276d2715b12e7709ab4052e63edae87010c4b52c0365d1282b55109220",
+      "size": 1671
+    },
+    "RELEASE_TREE_CONTRACT.json": {
+      "mode": "100644",
+      "sha256": "f8f9974c61f8fd6c33fe9b3225d4ea6d6c73bc28bd5c82cd96a1baf6c38cbe85",
+      "size": 2398
+    },
+    "START_PROVOWARE.sh": {
+      "mode": "100755",
+      "sha256": "9a7672c78a36a1ae1b9f6c85317f5ce89516e743073fae7b36d4719773260982",
+      "size": 327
+    },
+    "VERSION_GUI": {
+      "mode": "100644",
+      "sha256": "3888508aae9a86f69d363c83025be7e8a471c64958c047be45add77265280ec9",
+      "size": 45
+    },
+    "app.py": {
+      "mode": "100755",
+      "sha256": "3fa6dc585b2505bca68064ec562a63071609aca60dbfec77bf37df3758f2fb7a",
+      "size": 20050
+    },
+    "recovery/phase30/post_promotion_audit.py": {
+      "mode": "100644",
+      "sha256": "827f37bdad0173266e390bbc00844c8def34518f2a4b5cab6cc657b5b06fbeec",
+      "size": 11739
+    },
+    "recovery/phase30/test_phase30_contracts.py": {
+      "mode": "100644",
+      "sha256": "272847790f09c5e8a8e52cb14ef241098c074f02772a7e5d37a6d87f80c9c0bc",
+      "size": 2161
+    },
+    "recovery/phase30/test_post_promotion_audit.py": {
+      "mode": "100644",
+      "sha256": "90acfd99140b7924983ce60035cde932d448836ca8b1072077796e8c634c3532",
+      "size": 11507
+    },
+    "recovery/phase31/candidate_index_collector.py": {
+      "mode": "100644",
+      "sha256": "ceda0267b51579058d1bd9625a9b68771e8c5943e165d7e458962f6d6f73c205",
+      "size": 3875
+    },
+    "recovery/phase31/real_artifact_availability.py": {
+      "mode": "100644",
+      "sha256": "c8abbaa651e429cc0dbbaab67dfe017887c6c21101f3f3c5d0d4d10ce91cca54",
+      "size": 6138
+    },
+    "recovery/phase31/test_candidate_index_collector.py": {
+      "mode": "100644",
+      "sha256": "9dce883f5caae367fc78731173d8b95d2720083fcb39dcf8e2047bdcdeddb8a9",
+      "size": 1363
+    },
+    "recovery/phase31/test_candidate_index_contracts.py": {
+      "mode": "100644",
+      "sha256": "ca67a6a78ffeaf8aea50cf48880b38cce254f1ffeb8a8e4028a9f35280a6000c",
+      "size": 1287
+    },
+    "recovery/phase31/test_real_artifact_availability.py": {
+      "mode": "100644",
+      "sha256": "aa657d2b056336510dd574b4bc2e37ef0fbfa1d3b5c520eecc70be1552e82b02",
+      "size": 3293
+    },
+    "start.sh": {
+      "mode": "100755",
+      "sha256": "64c161848b1c02fcbbaf69cb45d4124225277fe1c0cb6a470d9795bcdf0cf4b0",
+      "size": 699
+    },
+    "tests/test_gui_layperson_texts.py": {
+      "mode": "100644",
+      "sha256": "2834a77080a50f5f40df835419a52360d8f267eeb53dbe15ae7afbef09047ee9",
+      "size": 2025
+    },
+    "tests/test_gui_recovery.py": {
+      "mode": "100644",
+      "sha256": "15ddd4a5568aaa860274b9f63d89cb88f582e5550a65033f409a0b68d2292654",
+      "size": 5058
+    },
+    "tests/test_repository_release_gate.py": {
+      "mode": "100644",
+      "sha256": "0ac9238b03a702c040912dcd447da4699bb8fd4535ee549888178b1d17f43c8e",
+      "size": 6842
+    },
+    "tests/test_runtime_instance_receipt.py": {
+      "mode": "100644",
+      "sha256": "1e87304f9b3913bf9cd57af88fe55c0377cff415f95ff45eaf3e1690384ec036",
+      "size": 2763
+    },
+    "tests/test_runtime_launcher.py": {
+      "mode": "100644",
+      "sha256": "a50e7f40545dd48b4a4d21cb3757a08eec3d749731862a328ee6fec962679f9f",
+      "size": 1534
+    },
+    "tools/build_release_candidate.py": {
+      "mode": "100755",
+      "sha256": "2d72e9a7812f9af51b96f295c6084609264b8fa769137afb46265d9106da3473",
+      "size": 1543
+    },
+    "tools/repository_release_gate.py": {
+      "mode": "100755",
+      "sha256": "c21c14cdf6f88f838041b6cb4b7560debcd4afc380b1fd77e990f99963836781",
+      "size": 9393
+    },
+    "tools/runtime_instance_receipt.py": {
+      "mode": "100755",
+      "sha256": "bf3d493b48b6b4d8d2e6d15444eb61211d70518505965d44e4a32aeb8c6a58f5",
+      "size": 6132
+    },
+    "tools/runtime_launcher.py": {
+      "mode": "100755",
+      "sha256": "05b1817f910e059aa066ee5a8858ff43622add42aac23534eb9397a122cfca98",
+      "size": 4559
+    },
+    "web/index.html": {
+      "mode": "100644",
+      "sha256": "f9e13862f0b2dec7b595336fa06480533994cdf6cdddfddb08ee60bd52ce968c",
+      "size": 13611
+    }
   },
   "schema_version": 1
 }
