@@ -1,0 +1,9 @@
+{
+  "snapshot_type": "I015_REAL_ARTIFACT_GITHUB_AVAILABILITY",
+  "repository": "provoware/PROVOWARE_ARCHIV_CLEANUP_CENTER",
+  "status": "NO_CANONICAL_BYTES_FOUND",
+  "canonical_targets": {
+    "I014": "72393a4ed445a765a7542d7a28c42171dbae66ed927dd0207c31f05a2a159899",
+    "BUILDER_V9": "29ad1a4a2ed8fcc8f1eff5c6bb36ba37425352caab8ecb99c3a992cdeac8780c"
+  }
+}
