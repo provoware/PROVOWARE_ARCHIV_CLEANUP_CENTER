@@ -1,0 +1,252 @@
+{
+  "baseline": "I013 / 0.13.0",
+  "baseline_sha256": "1d2d7bb14689daf50fd5b0a31cb3fef65e06d7dcb6f75e97e74b05da62290460",
+  "target": "I014 / 0.14.0",
+  "method": "line-block SequenceMatcher; generated metrics/quality/manifest/runtime evidence and binary backups excluded from character totals",
+  "totals": {
+    "inserted_chars": 56348,
+    "deleted_chars": 203,
+    "replaced_old_chars": 6328,
+    "replaced_new_chars": 9566,
+    "added_lines": 1234,
+    "deleted_lines": 5,
+    "replaced_old_lines": 94,
+    "replaced_new_lines": 193,
+    "net_chars": 59383,
+    "changed_files": 16
+  },
+  "files": {
+    "CHANGELOG.md": {
+      "inserted_chars": 0,
+      "deleted_chars": 180,
+      "replaced_old_chars": 947,
+      "replaced_new_chars": 2544,
+      "added_lines": 0,
+      "deleted_lines": 4,
+      "replaced_old_lines": 21,
+      "replaced_new_lines": 53,
+      "net_chars": 1417
+    },
+    "CURRENT_BASELINE.json": {
+      "inserted_chars": 0,
+      "deleted_chars": 0,
+      "replaced_old_chars": 188,
+      "replaced_new_chars": 653,
+      "added_lines": 0,
+      "deleted_lines": 0,
+      "replaced_old_lines": 6,
+      "replaced_new_lines": 18,
+      "net_chars": 465
+    },
+    "README.md": {
+      "inserted_chars": 1695,
+      "deleted_chars": 23,
+      "replaced_old_chars": 2159,
+      "replaced_new_chars": 3181,
+      "added_lines": 41,
+      "deleted_lines": 1,
+      "replaced_old_lines": 31,
+      "replaced_new_lines": 86,
+      "net_chars": 2694
+    },
+    "VERSION": {
+      "inserted_chars": 0,
+      "deleted_chars": 0,
+      "replaced_old_chars": 7,
+      "replaced_new_chars": 7,
+      "added_lines": 0,
+      "deleted_lines": 0,
+      "replaced_old_lines": 1,
+      "replaced_new_lines": 1,
+      "net_chars": 0
+    },
+    "app.py": {
+      "inserted_chars": 5292,
+      "deleted_chars": 0,
+      "replaced_old_chars": 246,
+      "replaced_new_chars": 273,
+      "added_lines": 77,
+      "deleted_lines": 0,
+      "replaced_old_lines": 4,
+      "replaced_new_lines": 4,
+      "net_chars": 5319
+    },
+    "core/__init__.py": {
+      "inserted_chars": 0,
+      "deleted_chars": 0,
+      "replaced_old_chars": 23,
+      "replaced_new_chars": 23,
+      "added_lines": 0,
+      "deleted_lines": 0,
+      "replaced_old_lines": 1,
+      "replaced_new_lines": 1,
+      "net_chars": 0
+    },
+    "core/diagnostic_bundle.py": {
+      "inserted_chars": 26082,
+      "deleted_chars": 0,
+      "replaced_old_chars": 0,
+      "replaced_new_chars": 0,
+      "added_lines": 670,
+      "deleted_lines": 0,
+      "replaced_old_lines": 0,
+      "replaced_new_lines": 0,
+      "net_chars": 26082
+    },
+    "core/quarantine_plan.py": {
+      "inserted_chars": 720,
+      "deleted_chars": 0,
+      "replaced_old_chars": 364,
+      "replaced_new_chars": 478,
+      "added_lines": 8,
+      "deleted_lines": 0,
+      "replaced_old_lines": 3,
+      "replaced_new_lines": 3,
+      "net_chars": 834
+    },
+    "core/report_composer.py": {
+      "inserted_chars": 1003,
+      "deleted_chars": 0,
+      "replaced_old_chars": 80,
+      "replaced_new_chars": 90,
+      "added_lines": 17,
+      "deleted_lines": 0,
+      "replaced_old_lines": 1,
+      "replaced_new_lines": 1,
+      "net_chars": 1013
+    },
+    "core/testsystem.py": {
+      "inserted_chars": 3012,
+      "deleted_chars": 0,
+      "replaced_old_chars": 0,
+      "replaced_new_chars": 0,
+      "added_lines": 53,
+      "deleted_lines": 0,
+      "replaced_old_lines": 0,
+      "replaced_new_lines": 0,
+      "net_chars": 3012
+    },
+    "scripts/api_i014_smoke.py": {
+      "inserted_chars": 4545,
+      "deleted_chars": 0,
+      "replaced_old_chars": 0,
+      "replaced_new_chars": 0,
+      "added_lines": 105,
+      "deleted_lines": 0,
+      "replaced_old_lines": 0,
+      "replaced_new_lines": 0,
+      "net_chars": 4545
+    },
+    "scripts/evidence_report_demo.py": {
+      "inserted_chars": 595,
+      "deleted_chars": 0,
+      "replaced_old_chars": 0,
+      "replaced_new_chars": 0,
+      "added_lines": 3,
+      "deleted_lines": 0,
+      "replaced_old_lines": 0,
+      "replaced_new_lines": 0,
+      "net_chars": 595
+    },
+    "scripts/selftest.sh": {
+      "inserted_chars": 45,
+      "deleted_chars": 0,
+      "replaced_old_chars": 0,
+      "replaced_new_chars": 0,
+      "added_lines": 1,
+      "deleted_lines": 0,
+      "replaced_old_lines": 0,
+      "replaced_new_lines": 0,
+      "net_chars": 45
+    },
+    "start.sh": {
+      "inserted_chars": 0,
+      "deleted_chars": 0,
+      "replaced_old_chars": 1870,
+      "replaced_new_chars": 1870,
+      "added_lines": 0,
+      "deleted_lines": 0,
+      "replaced_old_lines": 23,
+      "replaced_new_lines": 23,
+      "net_chars": 0
+    },
+    "tests/test_i014.py": {
+      "inserted_chars": 9894,
+      "deleted_chars": 0,
+      "replaced_old_chars": 0,
+      "replaced_new_chars": 0,
+      "added_lines": 205,
+      "deleted_lines": 0,
+      "replaced_old_lines": 0,
+      "replaced_new_lines": 0,
+      "net_chars": 9894
+    },
+    "web/index.html": {
+      "inserted_chars": 3465,
+      "deleted_chars": 0,
+      "replaced_old_chars": 444,
+      "replaced_new_chars": 447,
+      "added_lines": 54,
+      "deleted_lines": 0,
+      "replaced_old_lines": 3,
+      "replaced_new_lines": 3,
+      "net_chars": 3468
+    }
+  },
+  "classification": {
+    "Dokumentation": [
+      "CHANGELOG.md",
+      "README.md"
+    ],
+    "Release-Metadaten": [
+      "CURRENT_BASELINE.json",
+      "VERSION"
+    ],
+    "Produktcode": [
+      "app.py",
+      "core/__init__.py",
+      "core/diagnostic_bundle.py",
+      "core/quarantine_plan.py",
+      "core/report_composer.py",
+      "core/testsystem.py"
+    ],
+    "Skripte": [
+      "scripts/api_i014_smoke.py",
+      "scripts/evidence_report_demo.py",
+      "scripts/selftest.sh",
+      "start.sh"
+    ],
+    "Tests": [
+      "tests/test_i014.py"
+    ],
+    "Oberfläche": [
+      "web/index.html"
+    ]
+  },
+  "non_character_file_changes": [
+    {
+      "path": "Backup/PROVOWARE_ARCHIV_CLEANUP_CENTER_I012.zip",
+      "baseline_bytes": 613840,
+      "target_bytes": 0,
+      "change": "removed"
+    },
+    {
+      "path": "Backup/PROVOWARE_ARCHIV_CLEANUP_CENTER_I013.zip",
+      "baseline_bytes": 0,
+      "target_bytes": 839271,
+      "change": "added"
+    },
+    {
+      "path": "Backup/README.txt",
+      "baseline_bytes": 71,
+      "target_bytes": 282,
+      "change": "modified"
+    },
+    {
+      "path": "tests/test_i013.py.tmp",
+      "baseline_bytes": 0,
+      "target_bytes": 0,
+      "change": "removed"
+    }
+  ]
+}

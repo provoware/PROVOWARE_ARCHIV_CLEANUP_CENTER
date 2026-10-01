@@ -1,0 +1,61 @@
+{
+  "project": "PROVOWARE_ARCHIV_CLEANUP_CENTER",
+  "version": "0.14.0",
+  "iteration": "014",
+  "baseline": {
+    "release": "I013",
+    "sha256": "1d2d7bb14689daf50fd5b0a31cb3fef65e06d7dcb6f75e97e74b05da62290460"
+  },
+  "generated_at": "2026-08-08T20:49:00+0000",
+  "development_gate": "PASS",
+  "production_release": "LOCKED",
+  "metrics": {
+    "unit_tests": {
+      "passed": 133,
+      "total": 133
+    },
+    "selftests": {
+      "passed": 53,
+      "total": 53
+    },
+    "fault_matrix": {
+      "passed": 11,
+      "total": 11
+    },
+    "python_files_checked": 61,
+    "javascript_blocks_checked": 14
+  },
+  "gates": {
+    "baseline_zip_integrity": "PASS",
+    "unit_integration": "PASS",
+    "selftests": "PASS",
+    "fault_matrix": "PASS",
+    "python_syntax": "PASS",
+    "javascript_syntax": "PASS",
+    "shell_syntax": "PASS",
+    "api_i011_i014_regression": "PASS",
+    "i014_cross_reference": "PASS",
+    "i014_bundle_verification": "PASS",
+    "i014_fault_cleanup": "PASS",
+    "hard_lock_static": "PASS",
+    "write_readiness_hard_block": "PASS"
+  },
+  "i014_api": {
+    "status": "PASS",
+    "acceptance": "READ_ONLY_ACCEPTANCE_PASS",
+    "diagnostic": "DIAGNOSTIC_COMPLETE",
+    "bundle_verification": "PASS",
+    "generation": 1,
+    "bundle_fingerprint": "99dc91a24388f5f165aa9a03c95561ba1a2252bb86c15932919159d62d1bca0a",
+    "actual_moved_files": 0,
+    "production_action_enabled": false,
+    "write_readiness": "BLOCKED_REAL_WRITE"
+  },
+  "safety": {
+    "actual_moved_files": 0,
+    "production_action_enabled": false,
+    "real_quarantine_release": false,
+    "real_delete_enabled": false,
+    "write_readiness": "BLOCKED_REAL_WRITE"
+  }
+}
