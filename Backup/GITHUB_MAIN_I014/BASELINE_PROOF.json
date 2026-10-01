@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "BYTE_EXACT_GITHUB_BASELINE_REFERENCE",
+  "repository": "provoware/PROVOWARE_ARCHIV_CLEANUP_CENTER",
+  "source_branch": "main",
+  "source_commit": "9b6da6741b910cac827b6f9f55515dd68442b2f9",
+  "source_tree": "b11245da3ff63b25e9e08b0389cc21da8aaa5c61",
+  "release": "I014",
+  "product_version": "0.14.0",
+  "i014_release_sha256": "72393a4ed445a765a7542d7a28c42171dbae66ed927dd0207c31f05a2a159899",
+  "files": {
+    "CHANGELOG.md": "a066bb5c30568959978d6145f8286af593e7f5dd",
+    "CURRENT_BASELINE.json": "8b84cd0302c42a3500108c91f51107e76692bc9a",
+    "QUALITY_REPORT.md": "12a4af5060fa74aa700391a69c7795e76a9c5102",
+    "README.md": "226f37d2a3c09cf93945b6d907fde1caf7ebbf5f",
+    "RELEASE_SHA256.txt": "9b54843236a449364fa88b5b263c828266a9621e",
+    "VERSION": "a803cc227fe6ff1fbb6dcfc2dde3e4ccc450257e"
+  },
+  "i014_original_zip_bytes_in_repository": false,
+  "builder_v9_original_bytes_in_repository": false,
+  "replacement_reconstructed": false
+}
